@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>VerdeVital - Tienda Natural</title>
+  <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;700&display=swap" rel="stylesheet">
+  <!-- CSS de la librería de notificaciones -->
+  <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/toastify-js/src/toastify.min.css">
+  <link rel="stylesheet" href="assets/css/style.css">
+</head>
+<body>
+  <header class="navbar">
+    <div class="logo">🌿 VerdeVital</div>
+    <nav>
+      <ul class="nav-links">
+        <li><a href="#hero">Inicio</a></li>
+        <li><a href="#productos">Productos</a></li>
+        <li><a href="#categorias">Categorías</a></li>
+        <li><a href="#contacto">Contacto</a></li>
+      </ul>
+    </nav>
+    <div class="nav-actions">
+      <button id="btnLogin">Iniciar Sesión</button>
+      <div id="btnAbrirCarrito" class="cart">🛒 <span id="carritoCount">0</span></div>
+    </div>
+  </header>
+
+  <section id="hero">
+    <div class="hero-content">
+      <h1>Bienvenido a VerdeVital</h1>
+      <p>Productos naturales de alta calidad para tu bienestar</p>
+      <button onclick="scrollToSection('productos')">Compra Ahora</button>
+    </div>
+  </section>
+
+  <section id="categorias">
+    <h2>Categorías</h2>
+    <div class="categoria-list"></div>
+  </section>
+
+  <section id="filtros">
+    <input id="buscador" type="text" placeholder="Buscar producto..." onkeyup="filtrarYOrdenar()">
+    <select id="orden" onchange="filtrarYOrdenar()">
+      <option value="">Ordenar por</option>
+      <option value="precio-asc">Precio: Menor a mayor</option>
+      <option value="precio-desc">Precio: Mayor a menor</option>
+      <option value="nombre-asc">Nombre: A-Z</option>
+      <option value="nombre-desc">Nombre: Z-A</option>
+    </select>
+  </section>
+
+  <section id="productos" class="catalogo"></section>
+
+  <div id="modalProducto" class="modal">
+    <div class="modal-content">
+      <span class="close" onclick="cerrarModal('modalProducto')">&times;</span>
+      <h2 id="modalTitulo"></h2>
+      <p id="modalDescripcion"></p>
+      <p><strong>Precio:</strong> <span id="modalPrecio"></span></p>
+      <p><strong>Stock:</strong> <span id="modalStock"></span></p>
+      <button onclick="agregarAlCarrito()">Agregar al carrito</button>
+    </div>
+  </div>
+
+  <div id="modalLogin" class="modal">
+    <div class="modal-content">
+      <span class="close" onclick="cerrarModal('modalLogin')">&times;</span>
+      <form id="formLogin">
+        <h2>Iniciar Sesión</h2>
+        <input name="email" type="email" placeholder="Correo electrónico" required>
+        <input name="password" type="password" placeholder="Contraseña" required>
+        <button type="submit">Entrar</button>
+      </form>
+      <hr style="margin: 2rem 0;">
+      <form id="formRegister">
+        <h2>¿Eres nuevo? Regístrate</h2>
+        <input name="email" type="email" placeholder="Correo electrónico" required>
+        <input name="password" type="password" placeholder="Contraseña" required>
+        <button type="submit">Registrarme</button>
+      </form>
+    </div>
+  </div>
+
+  <div id="modalCheckout" class="modal">
+    <div class="modal-content">
+        <span class="close" onclick="cerrarModal('modalCheckout')">&times;</span>
+        <h2>Finalizar Compra</h2>
+        <div id="resumenCarrito">
+            <h3>Resumen de tu compra:</h3>
+            <div id="listaCarrito">
+            </div>
+            <p><strong>Total: <span id="totalCarrito">$0</span></strong></p>
+        </div>
+        <hr>
+        <form id="formCheckout">
+            <input type="text" placeholder="Nombre completo" required>
+            <input type="text" placeholder="Dirección de envío" required>
+            <input type="tel" placeholder="Teléfono" required>
+            <button type="submit">Enviar Pedido</button>
+        </form>
+        <button id="btnAnular" onclick="anularCompra()">Anular Compra</button>
+    </div>
+  </div>
+
+  <section id="contacto">
+    <h2>Suscríbete a nuestro newsletter</h2>
+    <form id="formNewsletter">
+      <input type="email" placeholder="Tu correo electrónico" required>
+      <button type="submit">Suscribirme</button>
+    </form>
+    <div class="social">
+      <a href="#">Facebook</a> | <a href="#">Instagram</a> | <a href="#">Twitter</a>
+    </div>
+  </section>
+
+  <footer>
+    <p>&copy; 2025 VerdeVital. Todos los derechos reservados.</p>
+  </footer>
+
+  <!-- JS de la librería de notificaciones -->
+  <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/toastify-js"></script>
+  <script src="assets/js/script.js"></script>
+</body>
+</html>

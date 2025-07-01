@@ -1,0 +1,312 @@
+:root {
+  --color-primario: #1b5e20;
+  --color-secundario: #388e3c;
+  --color-fondo-claro: #f0fdf4;
+  --color-texto-principal: #212529;
+  --color-texto-claro: #ffffff;
+  --color-sombra: rgba(0, 0, 0, 0.1);
+}
+
+body {
+  font-family: 'Nunito', sans-serif;
+  margin: 0;
+  background-color: var(--color-fondo-claro);
+  color: var(--color-texto-principal);
+}
+
+.navbar {
+  background-color: var(--color-primario);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem 2rem;
+}
+
+.nav-links {
+  list-style: none;
+  display: flex;
+  gap: 1.5rem;
+}
+
+.nav-links a {
+  color: var(--color-texto-claro);
+  text-decoration: none;
+  font-weight: 600;
+}
+
+.logo {
+  color: var(--color-texto-claro);
+  font-size: 1.5rem;
+  font-weight: bold;
+}
+
+.nav-actions {
+  display: flex;
+  align-items: center;
+}
+
+.nav-actions button,
+.nav-actions .cart {
+  margin-left: 1rem;
+  background: transparent;
+  border: none;
+  color: var(--color-texto-claro);
+  font-size: 1rem;
+  cursor: pointer;
+}
+
+.nav-actions .cart {
+  position: relative;
+}
+
+.nav-actions .cart #carritoCount {
+  background-color: red;
+  color: white;
+  font-size: 0.75rem;
+  padding: 2px 6px;
+  border-radius: 50%;
+  position: absolute;
+  top: -8px;
+  right: -12px;
+}
+
+#hero {
+  background: url('https://images.unsplash.com/photo-1498837167922-ddd27525d352?q=80&w=2070&auto=format&fit=crop') center/cover no-repeat;
+  height: 400px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  color: var(--color-texto-claro);
+  position: relative;
+}
+
+#hero::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.4);
+}
+
+.hero-content {
+    position: relative;
+}
+
+.hero-content h1 {
+  font-size: 3rem;
+  margin: 0;
+  color: var(--color-texto-claro);
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+}
+
+.hero-content p {
+  font-size: 1.25rem;
+  margin: 1rem 0;
+}
+
+.hero-content button {
+  background-color: var(--color-secundario);
+  border: none;
+  padding: 0.75rem 1.5rem;
+  border-radius: 5px;
+  font-size: 1rem;
+  color: var(--color-texto-claro);
+  cursor: pointer;
+}
+
+#categorias h2,
+#filtros h2,
+#productos h2,
+#contacto h2 {
+  color: var(--color-primario);
+}
+
+#categorias {
+  padding: 2rem;
+  text-align: center;
+}
+
+.categoria-list {
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
+  flex-wrap: wrap;
+}
+
+.categoria-list button {
+  background-color: #a5d6a7;
+  border: none;
+  padding: 0.5rem 1rem;
+  border-radius: 20px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.categoria-list button:hover {
+  background-color: #81c784;
+}
+
+#filtros {
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
+  padding: 1rem 2rem;
+}
+
+#filtros input,
+#filtros select {
+  padding: 0.5rem;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  font-size: 1rem;
+}
+
+.catalogo {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+  gap: 2rem;
+  padding: 2rem;
+}
+
+.producto-card {
+  background: white;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px var(--color-sombra);
+  display: flex;
+  flex-direction: column;
+  transition: transform 0.2s ease;
+  overflow: hidden;
+}
+
+.producto-card:hover {
+  transform: translateY(-5px);
+}
+
+.producto-card img {
+  width: 100%;
+  height: 180px;
+  object-fit: cover;
+}
+
+.producto-card h3 {
+  margin: 0.5rem 1rem 0;
+  font-size: 1.1rem;
+  color: var(--color-texto-principal);
+}
+
+.producto-card .precio {
+  margin: 0.5rem 1rem;
+  color: var(--color-secundario);
+  font-weight: bold;
+}
+
+.producto-card button {
+  margin: auto 1rem 1rem;
+  background-color: var(--color-secundario);
+  border: none;
+  color: var(--color-texto-claro);
+  padding: 0.5rem;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.modal {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.6);
+  justify-content: center;
+  align-items: center;
+  z-index: 100;
+}
+
+.modal-content {
+  background: #fff;
+  padding: 2rem;
+  border-radius: 10px;
+  width: 90%;
+  max-width: 400px;
+  position: relative;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+}
+
+.modal-content .close {
+  position: absolute;
+  top: 10px;
+  right: 15px;
+  font-size: 1.5rem;
+  cursor: pointer;
+  color: #333;
+}
+
+.modal-content form {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.modal-content form input {
+  padding: 0.5rem;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
+
+.modal-content form button {
+  background-color: var(--color-primario);
+  color: var(--color-texto-claro);
+  padding: 0.7rem;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+#btnAnular {
+  margin-top: 1rem;
+  background: transparent;
+  color: #c62828;
+  border: 1px solid #c62828;
+  padding: 0.5rem;
+  border-radius: 5px;
+}
+
+#btnAnular:hover {
+  background-color: #c62828;
+  color: white;
+}
+
+#contacto {
+  padding: 2rem;
+  background-color: #e8f5e9;
+  text-align: center;
+}
+
+#contacto input[type="email"] {
+  padding: 0.5rem;
+  width: 100%;
+  max-width: 300px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  margin-bottom: 0.5rem;
+}
+
+#contacto button {
+  background-color: var(--color-primario);
+  color: white;
+  padding: 0.5rem 1rem;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+footer {
+  background-color: var(--color-primario);
+  color: var(--color-texto-claro);
+  text-align: center;
+  padding: 1rem;
+}
